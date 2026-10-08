@@ -1,0 +1,52 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+*.local
+
+# --- Runtime artifacts (large pickles, trained models) ---
+backend/artifacts/
+backend/backend/
+
+# --- App data stores (generated runtime data, not source) ---
+backend/store/*.jsonl
+
+# --- Logs, scratch files, experiment dumps ---
+*.log
+*.log.*
+backend/_*.log
+backend/_*.json
+backend/scen*.json
+backend/candidate_*.log
+backend/candidate_*_result.json
+backend/overview.json
+backend/full_suite_run.log
+backend/final_browser_audit.json
+backend/pred_f.json
+backend/uvicorn.log
+_deploy_test.log
+_pred.json
+
+# --- Experiment result CSVs (regenerable) ---
+clean_holdout_predictions.csv
+final_total_policy_comparison.csv
+
+# --- Screenshots / media captures ---
+*.png
+*.webm
+
+# --- Freebuff scratch ---
+.freebuff/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

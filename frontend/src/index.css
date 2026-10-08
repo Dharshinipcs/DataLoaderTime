@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+   DataLoaderTime — Authoritative Vintage / Heritage Theme (locked palette)
+   Warm ivory workspace · soft-white cards · charcoal navigation · muted
+   bronze/sage accents · restrained antique gold. No blue-SaaS, no neon.
+   ========================================================================= */
+
+@theme {
+  --color-ivory: #f7f4ee; /* PRIMARY WORKSPACE */
+  --color-parchment: #fffdf8; /* CARDS / PANELS */
+  --color-charcoal: #263238; /* PRIMARY DARK / NAVIGATION */
+  --color-ink: #29302f; /* PRIMARY TEXT */
+  --color-warmgray: #747873; /* SECONDARY / MUTED TEXT */
+  --color-bronze: #8a6a4a; /* PRIMARY VINTAGE ACCENT */
+  --color-sage: #6f7d73; /* SECONDARY ACCENT */
+  --color-gold: #c6a15b; /* HIGHLIGHT (sparing) */
+  --color-linen: #ddd7cc; /* BORDERS / DIVIDERS */
+  --color-forest: #58705e; /* SUCCESS / NORMAL */
+  --color-ochre: #a77a3d; /* WARNING */
+  --color-terra: #a45d4d; /* HIGH RISK */
+  --color-ember: #9a5148; /* ERROR / LOW CONFIDENCE */
+
+  --font-sans: ui-sans-serif, system-ui, 'Segoe UI', Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+}
+
+/* Soft elevation: extremely subtle — never a floating glass panel. */
+.card {
+  background-color: var(--color-parchment);
+  border: 1px solid var(--color-linen);
+  border-radius: 0.5rem;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-linen);
+  background-color: #fffefb;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  outline: none;
+}
+
+.field-input:focus {
+  border-color: var(--color-bronze);
+  box-shadow: 0 0 0 2px rgb(138 106 74 / 0.18);
+}
+
+.field-input:disabled {
+  background-color: var(--color-ivory);
+  color: var(--color-warmgray);
+}
+
+/* Consistent button hierarchy: bronze primary, warm-neutral secondary. */
+.btn-primary {
+  border-radius: 0.375rem;
+  background-color: var(--color-bronze);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fffdf8;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #7a5c40;
+}
+
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-linen);
+  background-color: var(--color-parchment);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-ivory);
+}
+
+.btn-secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Compact status badges used across pages (never color-only: they always
+   carry the state label text as well). */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
