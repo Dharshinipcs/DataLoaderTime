@@ -1,0 +1,21 @@
+services:
+  # Pre-built Render Blueprint (Render free tier, no persistent disk).
+  # When you "New +" -> "Blueprint" on render.com and point it at this repo,
+  # Render reads this file and creates the web service automatically.
+  - type: web
+    name: dataloadertime
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: chmod +x start.sh && ./start.sh
+    startCommand: uvicorn deploy_server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    # Ephemeral plan: artifacts + JSONL stores rebuild on each deploy via start.sh
+    # (bootstrap_models.py re-trains + re-promotes the model on first boot).
+    disk: null
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: PIP_NO_CACHE_DIR
+        value: "1"
